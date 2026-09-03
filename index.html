@@ -1,93 +1,34 @@
-<!DOCTYPE html>
+
+      <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Organizador Estudantil</title>
-  <style>
-    :root {
-      --bg: #f4f6f9;
-      --card: #ffffff;
-      --primary: #4a6fa5;
-      --accent-school: #e63946;
-      --accent-daily: #2a9d8f;
-      --text: #2b2d42;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 20px;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--card);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    h1 { text-align: center; color: var(--primary); margin-top: 0; }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    input, select, button {
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    button {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover { background-color: #3b5984; }
-    .filters {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 15px;
-    }
-    .filter-btn {
-      flex: 1;
-      background: #e9ecef;
-      color: var(--text);
-      border: none;
-      padding: 8px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-    }
-    ul { list-style: none; padding: 0; }
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px;
-      background: #f8f9fa;
-      border-left: 5px solid #ccc;
-      margin-bottom: 8px;
-      border-radius: 4px;
-    }
-    li.escolar { border-left-color: var(--accent-school); }
-    li.dia-a-dia { border-left-color: var(--accent-daily); }
-    li.done { opacity: 0.5; text-decoration: line-through; }
-    .badge {
-      font-size: 11px;
-      padding: 3px 6px;
-      border-radius: 4px;
-      color: white;
-      margin-right: 8px;
-    }
-    .badge.escolar { background: var(--accent-school); }
-    .badge.
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Planner Estudantil</h1>
+    <div class="form-group">
+      <input type="text" id="taskInput" placeholder="Descrição da tarefa...">
+      <select id="taskCategory">
+        <option value="escolar">Escolar / Acadêmica</option>
+        <option value="dia-a-dia">Dia a Dia / Pessoal</option>
+      </select>
+      <input type="date" id="taskDate">
+      <button onclick="addTask()">Adicionar Tarefa</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterTasks('all', this)">Todas</button>
+      <button class="filter-btn" onclick="filterTasks('escolar', this)">Escolares</button>
+      <button class="filter-btn" onclick="filterTasks('dia-a-dia', this)">Dia a Dia</button>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
